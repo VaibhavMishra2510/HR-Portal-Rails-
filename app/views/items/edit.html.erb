@@ -1,0 +1,83 @@
+<div class="col-lg-12">
+  <!-- Card with Light Background and Primary Border -->
+  <div class="d-flex justify-content-center mb-3 align-items-center">
+    <div class="card rounded-lg bg-dark text-light border-primary rounded-pill" 
+         style="box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); width: 40%;">
+      <div class="card-body text-center">
+        <h2 class="text-center text-primary">
+          <i class="bi bi-person-fill"></i> Edit Item
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notifications Section -->
+  <div class="text-center mb-4">
+    <% if notice %>
+      <div class="alert alert-info text-light p-3 rounded">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="alert alert-danger text-light p-3 rounded">
+        <%= alert %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Form to Create New Item -->
+  <%= form_with model: @item, local: true do |form| %>
+    <div class="form-group">
+      <%= form.label :name, 'Item Name', class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control bg-dark text-light', required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :price, 'Price', class: 'form-label' %>
+      <%= form.number_field :price, class: 'form-control bg-dark text-light', step: '0.01', required: true %>
+    </div>
+
+  <div class="form-group">
+  <%= form.label :employee_id, 'Issued To', class: 'form-label' %>
+  <%= form.select :employee_id, 
+                  options_for_select(Employee.all.map { |e| [e.name, e.id] } + [['N/A', -1]], selected: @item.employee_id),
+                  { prompt: 'Select an Employee' }, 
+                  class: 'form-control bg-dark text-light', required: true %>
+</div>
+
+
+
+   <div class="form-group">
+  <%= form.label :issued_date, 'Issued Date', class: 'mb-2 mt-2' %>
+  <div class="d-flex align-items-center">
+    <%= form.date_select :issued_date, { include_blank: true }, class: 'form-control bg-dark text-light' %>
+    <div class="form-check ms-3">
+      <%= check_box_tag 'issued_date_na', 'true', false, id: 'issued_date_na', class: 'form-check-input' %>
+      <%= label_tag 'issued_date_na', 'N/A', class: 'form-check-label text-light' %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= form.label :returned_date, 'Returned Date', class: 'form-label' %>
+  <div class="d-flex align-items-center">
+    <%= form.date_select :returned_date, { include_blank: true }, class: 'form-control bg-dark text-light' %>
+    <div class="form-check ms-3">
+      <%= check_box_tag 'returned_date_na', 'true', false, id: 'returned_date_na', class: 'form-check-input' %>
+      <%= label_tag 'returned_date_na', 'N/A', class: 'form-check-label' %>
+    </div>
+  </div>
+</div>
+
+    <div class="form-group text-center">
+      <%= form.submit 'Edit Item', class: 'btn btn-success btn-lg mb-4 mt-4 d-block mx-auto rounded-pill', 
+                      style: "box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1);width: 20%" %>
+    </div>
+  <% end %>
+
+  <!-- Back to Item List Link -->
+  <%= link_to 'Back to Items List', items_path, 
+              class: "btn btn-outline-primary btn-lg mb-4 d-block mx-auto rounded-pill", 
+              style: "box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); width: 20%;" %>
+</div>

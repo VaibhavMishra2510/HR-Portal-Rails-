@@ -1,0 +1,39 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+/* Primary color hover effect for links */
+.text-hover-primary:hover {
+  color: #1a73e8 !important; /* Primary color */
+}
+
+.text-primary {
+  color: #1a73e8 !important; /* Primary color */
+}
+
+body {
+  background-color: #000;
+  color: #fff; /* Ensure text is white for readability */
+  font-family: Arial, sans-serif;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #4b5563; /* Using $gray-600 variable */
+}
+.table-striped tbody tr:nth-child(even) {
+  background-color: 6b737e ; /* Using $gray-600 variable */
+}
+
+
+

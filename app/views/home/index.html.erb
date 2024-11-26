@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attractive Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+            background-color: #000;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .hero-section {
+      background-image: url('https://cdn.pixabay.com/photo/2020/02/27/14/33/building-4884852_1280.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-section h1 {
+      font-size: 4rem;
+      font-weight: 700;
+            color: #000;
+
+    }
+
+    .feature-card {
+     background-color:#1E1E1E;
+     color: white;
+     transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+    }
+
+    .cta-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      border: none;
+    }
+
+    .cta-btn:hover {
+      background-color: #0056b3;
+      text-decoration: none;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h1>Welcome to Our Website</h1>
+    <p class="lead">We create amazing digital experiences for you.</p>
+    <a href="#features" class="cta-btn">Explore Our Features</a>
+  </div>
+
+  <!-- Features Section -->
+  <div id="features" class="container py-5">
+<h2 class="section-title text-light border-primary">Our Amazing Features</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card shadow">
+          <img src="https://images.unsplash.com/photo-1559523182-a284c3fb7cff?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Feature 1">
+          <div class="card-body">
+            <h5 class="card-title">Feature One</h5>
+               <p class="card-text">This feature provides powerful tools to efficiently manage employee details and streamline employee handling.</p>
+             <%= link_to 'Employees', employees_path, class: ' btn btn-primary nav-link' %>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card shadow">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Feature 2">
+          <div class="card-body">
+            <h5 class="card-title">Feature Two</h5>
+               <p class="card-text">This feature provides powerful tools to efficiently manage documents details and streamline documents handling.</p>
+            <%= link_to 'Documents', documents_path, class: ' btn btn-primary nav-link ' %>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card feature-card shadow">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          class="card-img-top" alt="Feature 3">
+           <div class="card-body">
+            <h5 class="card-title">Feature Three</h5>
+            <p class="card-text">This feature provides powerful tools to efficiently manage items details and streamline items handling.
+                <%= link_to 'Items', items_path, class: ' btn btn-primary nav-link ' %>
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials Section -->
+  <div class="container py-5 bg-dark text-light mb-5">
+    <h2 class="section-title text-light text-center mb-5">What Our Clients Say</h2>
+    <div class="row">
+        <!-- Testimonial 1 -->
+        <div class="col-md-4">
+            <div class="testimonial text-center">
+                <img 
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=crop&w=200&h=200&q=80"
+                    class="rounded-circle mb-3" 
+                    alt="Client 1"
+                    width="100" 
+                    height="100">
+                <h5>John Doe</h5>
+                <p class="fst-italic">"Amazing service! My productivity has gone through the roof thanks to their solutions."</p>
+            </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="col-md-4">
+            <div class="testimonial text-center">
+                <img 
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=crop&w=200&h=200&q=80" 
+                    class="rounded-circle mb-3" 
+                    alt="Client 2"
+                    width="100" 
+                    height="100">
+                <h5>Jane Smith</h5>
+                <p class="fst-italic">"I love the user-friendly interface and the results I've achieved. Highly recommend!"</p>
+            </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="col-md-4">
+            <div class="testimonial text-center">
+                <img 
+                    src="https://cdn.pixabay.com/photo/2015/03/03/18/58/woman-657753_1280.jpg"
+                    class="rounded-circle mb-3" 
+                    alt="Client 3"
+                    width="100" 
+                    height="100">
+                <h5>Mark Johnson</h5>
+                <p class="fst-italic">"A game changer for my business. Their features are intuitive and efficient. Excellent support!"</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </div>
+

@@ -1,0 +1,53 @@
+<!-- Footer Section -->
+<footer class="bg-dark text-white py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Footer Logo & Description -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h3 class="text-uppercase font-weight-bold text-primary">Your Company</h3>
+        <p>We provide exceptional digital solutions. Explore our services and find out how we can help you achieve your goals.</p>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="text-uppercase text-primary">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><%= link_to 'About Us', about_path, class: 'text-white text-hover-primary' %></li>
+          <li><%= link_to 'Contact Us', contact_path, class: 'text-white text-hover-primary' %></li>
+          <li><%= link_to 'Privacy Policy', privacy_policy_path, class: 'text-white text-hover-primary' %></li>
+          <li><%= link_to 'Terms and Conditions', terms_and_conditions_path, class: 'text-white text-hover-primary' %></li>
+        </ul>
+      </div>
+
+      <!-- Footer Social Media Links -->
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="text-uppercase text-primary">Follow Us</h5>
+        <ul class="list-unstyled d-flex">
+          <li class="me-3">
+            <a href="#" class="text-white text-hover-primary"><i class="fab fa-facebook-f"></i></a>
+          </li>
+          <li class="me-3">
+            <a href="#" class="text-white text-hover-primary"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="me-3">
+            <a href="#" class="text-white text-hover-primary"><i class="fab fa-linkedin-in"></i></a>
+          </li>
+          <li class="me-3">
+            <a href="#" class="text-white text-hover-primary"><i class="fab fa-instagram"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="text-center mt-4">
+      <p>&copy; 2024 Your Company Name. All Rights Reserved.</p>
+      <p>Designed with <span class="text-danger">&#10084;</span> by Your Company</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS, Popper, and Font Awesome (for social icons) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>

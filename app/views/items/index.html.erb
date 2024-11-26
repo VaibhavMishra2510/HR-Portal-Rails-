@@ -1,0 +1,80 @@
+<div class="col-lg-12">
+  <!-- Card with Light Background and Primary Border -->
+  <div class="d-flex justify-content-center mb-3 align-items-center">
+    <div class="card rounded-lg bg-dark text-light border-primary rounded-pill" 
+         style="box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); width: 40%;">
+      <div class="card-body text-center">
+        <h2 class="text-center text-primary">
+          <i class="bi bi-person-fill"></i> All Items Details
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notifications Section -->
+ 
+
+  <!-- Create New Item Link -->
+  <%= link_to 'Create New Item', new_item_path, 
+              class: "btn btn-success btn-lg mb-4 d-block mx-auto rounded-pill", 
+              style: "box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); width: 30%;" %>
+
+  <!-- Table of Items -->
+  <% if  @items.present? %>
+    <table class="table table-dark table-bordered table-striped table-hover text-light mb-5">
+      <thead class="bg-info text-white fw-bold">
+        <tr>
+          <th>S.N.</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Issued To</th>
+          <th>Issued Date</th>
+          <th>Return Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each_with_index do |item, index| %>
+          <tr class="document-hover">
+            <td><%= index + 1 %></td>
+            <td><%= item.name %></td>
+            <td><%= number_to_currency(item.price, unit: "₹", delimiter: ",", format: "%u%n") %></td>
+
+            <td><%= item.employee&.name || "N/A" %></td>
+            <td><%= item.issued_date || "N/A" %></td>
+            <td><%= item.returned_date || "N/A" %></td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-outline-primary text-bold dropdown-toggle" type="button" 
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Action
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><%= link_to "Edit", edit_item_path(item), class: "dropdown-item" %></li>
+                  <li><%= link_to "View", item_path(item), class: "dropdown-item" %></li>
+                  <li><%= link_to "Delete", item_path(item), 
+                                  class: "dropdown-item text-danger", method: :delete, 
+                                  data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="text-center text-warning">No items available for you at the moment.</p>
+  <% end %>
+</div>
+
+<!-- Custom CSS for Hover Effect -->
+<style>
+  .document-hover:hover {
+    background-color: #007bff !important; /* Primary color */
+    color: white !important; /* Ensure text stays white */
+  }
+
+  .document-hover {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+</style>
