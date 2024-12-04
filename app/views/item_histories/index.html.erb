@@ -1,0 +1,31 @@
+<div class="col-lg-12 ">
+  <!-- Card for Employees Details Header -->
+  <div class="d-flex justify-content-center align-items-center fw-bolder mb-4">
+ <div class="card  bg-info text-light border-dark  " style="box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); width: 70%;">
+    <div class="card-body text-center ">
+   <h2 >Item Histories</h2> 
+    </div>
+  </div>
+ 
+  </div>
+
+
+ <table class="table rounded-lg table-secondary table-bordered table-striped table-hover mb-5">
+  <thead class="bg-primary text-dark fw-bold">
+    <tr>
+      <th>Employee Name</th>
+      <th>Issued Date</th>
+      <th>Returned Date</th>
+    </tr>
+  </thead>
+      <tbody class="bg-dark text-dark">
+    <% @item.item_histories.order(created_at: :desc).each do |history| %>
+      <tr>
+        <td><%= history.employee_name %></td>
+        <td><%= history.issued_date %></td>
+        <td><%= history.returned_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

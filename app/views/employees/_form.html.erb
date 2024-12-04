@@ -8,8 +8,8 @@
       <!-- First Name -->
       <div class="col-lg-6">
         <div class="form-group">
-          <%= form.label :first_name, class: 'mb-2 text-center' %>
-          <%= form.text_field :first_name, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :first_name, class: 'mb-2 text-dark' %>
+          <%= form.text_field :first_name, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:first_name).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -19,8 +19,8 @@
       <!-- Last Name -->
       <div class="col-lg-6">
         <div class="form-group">
-          <%= form.label :last_name, class: 'mb-2' %>
-          <%= form.text_field :last_name, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :last_name, class: 'mb-2 text-dark' %>
+          <%= form.text_field :last_name, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:last_name).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -32,8 +32,8 @@
     <div class="row mb-2">
       <div class="col-lg-4">
         <div class="form-group">
-          <%= form.label :date_of_birth, class: 'mb-2' %>
-          <%= form.date_field :date_of_birth, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :date_of_birth, class: 'mb-2 text-dark' %>
+          <%= form.date_field :date_of_birth, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:date_of_birth).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -43,8 +43,8 @@
       <!-- Date of Joining -->
       <div class="col-lg-4">
         <div class="form-group">
-          <%= form.label :date_of_joining, class: 'mb-2' %>
-          <%= form.date_field :date_of_joining, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :date_of_joining, class: 'mb-2 text-dark' %>
+          <%= form.date_field :date_of_joining, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:date_of_joining).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -54,8 +54,8 @@
       <!-- Job Title -->
       <div class="col-lg-4">
         <div class="form-group">
-          <%= form.label :job_title, class: 'mb-2' %>
-          <%= form.text_field :job_title, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :job_title, class: 'mb-2 text-dark' %>
+          <%= form.text_field :job_title, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:job_title).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -67,8 +67,8 @@
     <div class="row mb-2">
       <div class="col-lg-12">
         <div class="form-group">
-          <%= form.label :about, class: 'mb-2' %>
-          <%= form.text_area :about, class: 'form-control form-control-lg rounded-lg bg-dark text-light', rows: '5' %>
+          <%= form.label :about, class: 'mb-2 text-dark' %>
+          <%= form.text_area :about, class: 'form-control form-control-lg rounded-lg text-dark bg-light', rows: '5' %>
           <% @employee.errors.full_messages_for(:about).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -80,8 +80,8 @@
     <div class="row mb-2">
       <div class="col-lg-12">
         <div class="form-group">
-          <%= form.label :personal_email, class: 'mb-2' %>
-          <%= form.email_field :personal_email, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :personal_email, class: 'mb-2 text-dark' %>
+          <%= form.email_field :personal_email, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:personal_email).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -94,8 +94,8 @@
       <!-- Address Line 1 -->
       <div class="col-lg-6">
         <div class="form-group">
-          <%= form.label :address_line_1, class: 'mb-2' %>
-          <%= form.text_field :address_line_1, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :address_line_1, class: 'mb-2 text-dark' %>
+          <%= form.text_field :address_line_1, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:address_line_1).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -105,8 +105,8 @@
       <!-- Address Line 2 -->
       <div class="col-lg-6">
         <div class="form-group">
-          <%= form.label :address_line_2, class: 'mb-2' %>
-          <%= form.text_field :address_line_2, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :address_line_2, class: 'mb-2 text-dark' %>
+          <%= form.text_field :address_line_2, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:address_line_2).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -119,8 +119,8 @@
       <!-- City -->
       <div class="col-lg-3">
         <div class="form-group">
-          <%= form.label :city, class: 'mb-2' %>
-          <%= form.text_field :city, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :city, class: 'mb-2 text-dark' %>
+          <%= form.text_field :city, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:city).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -130,8 +130,8 @@
       <!-- State -->
       <div class="col-lg-3">
         <div class="form-group">
-          <%= form.label :state, class: 'mb-2' %>
-          <%= form.text_field :state, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :state, class: 'mb-2 text-dark'  %>
+          <%= form.text_field :state, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:state).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -141,8 +141,8 @@
       <!-- Country -->
       <div class="col-lg-3">
         <div class="form-group">
-          <%= form.label :country, class: 'mb-2' %>
-          <%= form.text_field :country, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :country, class: 'mb-2 text-dark' %>
+          <%= form.text_field :country, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:country).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>
@@ -152,8 +152,8 @@
       <!-- Pincode -->
       <div class="col-lg-3">
         <div class="form-group">
-          <%= form.label :pincode, class: 'mb-2' %>
-          <%= form.text_field :pincode, class: 'form-control form-control-lg rounded-lg bg-dark text-light' %>
+          <%= form.label :pincode, class: 'mb-2 text-dark' %>
+          <%= form.text_field :pincode, class: 'form-control form-control-lg rounded-lg text-dark bg-light' %>
           <% @employee.errors.full_messages_for(:pincode).each do |message| %>
             <p class="text-danger"><%= message %></p>
           <% end %>

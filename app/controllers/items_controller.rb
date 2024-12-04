@@ -1,12 +1,11 @@
-
 class ItemsController < ApplicationController
-    before_action :set_item, only: [:edit, :update, :show, :destroy]
-  before_action :authorize_admin_or_manager, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :show]
+  before_action :authorize_admin_or_manager, only: [:new, :create, :edit, :update]
   before_action :authorize_employee_access, only: [:show]
   before_action :filter_documents, only: [:index]
   def index
     # @items = Item.all
-    #    Rails.logger.debug(@items.inspect)
+    # Rails.logger.debug(@items.inspect)
   end
 
   def new
@@ -14,40 +13,40 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    if params[:employee_id].to_i == -1
-  # Handle "N/A" case here
-end
+  @item = Item.new(item_params) # Initialize the item with the form parameters
+
     if @item.save
-      redirect_to items_path, notice: "Item successfully created."
+    # History or other logic goes here
+    redirect_to items_path, notice: "Item successfully created."
     else
-      render :new
+    # If the item is not saved, render the new form with error messages
+    render :new
     end
   end
 
   def edit
     @item = Item.find(params[:id])
+    @histories = @item.item_histories.order(created_at: :desc)
   end
 
   def update
-    @item = Item.find(params[:id])
+   @item = Item.find(params[:id])
+     if params[:item][:returned_date].present?
+      @item.employee_id = nil
+      @item.issued_date = nil
+     end
+      if params[:item][:employee_id].present?
+      @item.returned_date = nil
+      end
     if @item.update(item_params)
-      redirect_to items_path, notice: "Item successfully updated."
+       redirect_to items_path, notice: "Item successfully updated."
     else
-      render :edit
+    render :edit
     end
   end
-
-  def destroy
-    if @item.destroy
-      redirect_to items_path, notice: 'Item has been deleted successfully'
-    else
-      redirect_to items_path, alert: 'Unable to delete the document.'
-    end
-  end
-
 
   private
+
   def set_item
     @item = Item.find(params[:id])
   end
@@ -61,10 +60,8 @@ end
 
   # Restricts access to an employee's own documents or allows admin/HR access
   def authorize_employee_access
-    # Allow admins and HR to access any document
     return if current_user&.role.in?(['admin', 'manager'])
 
-    # Allow employees to access only their own documents
     if current_user&.role == 'employee' && @item.employee_id != current_user.id
       redirect_to items_path, alert: "You are not authorized to access this item."
     end
@@ -75,16 +72,14 @@ end
     if current_user&.role.in?(['admin', 'manager'])
       @items = Item.all # Admins and HR see all documents
     elsif current_user&.role == 'employee'
-       @items = Item.where(employee_id: current_user.id) # Employees see only their own documents
+      @items = Item.where(employee_id: current_user.id) # Employees see only their own documents
     else
-       @items = Item.none # Unauthorized users see no documents
+      @items = Item.none # Unauthorized users see no documents
     end
   end
 
   # Strong parameters for document creation and updating
   def item_params
-    params.require(:item).permit(:sr_no, :name, :price, :employee_id, :issued_date, :returned_date)
+    params.require(:item).permit(:issued_to, :sr_no, :name, :price, :employee_id, :issued_date, :returned_date)
   end
 end
-
-

@@ -56,3 +56,8 @@ group :test do
   gem "selenium-webdriver"
 end
 gem "devise"
+gem "omniauth"     # OmniAuth core gem
+gem "omniauth-google-oauth2" # Example for Google
+gem "omniauth-facebook"
+gem "omniauth-rails_csrf_protection","~> 1.0"
+gem 'dotenv-rails', groups: [:development, :test]

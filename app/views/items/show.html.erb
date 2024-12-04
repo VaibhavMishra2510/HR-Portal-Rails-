@@ -1,51 +1,36 @@
 <div class="col-lg-12">
   <!-- Card with Light Background and Primary Border -->
-  <div class="d-flex justify-content-center mb-3 align-items-center">
-    <div class="card rounded-lg bg-dark text-light border-primary rounded-pill"
-         style="box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); width: 40%;">
-      <div class="card-body text-center">
-        <h2 class="text-center text-primary">
-          <i class="bi bi-person-fill"></i> Item Details
-        </h2>
-      </div>
+  <div class="col-lg-12">
+    <div class="d-flex justify-content-center     align-items-center fw-bolder ">
+       <div class="card  bg-info text-light border-dark  " style="box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); width: 70%;">
+      <div class="card-body text-center ">
+      <h2 class="text-primary-emphasis">Return Items</h2>
     </div>
   </div>
-
-  <!-- Item Details Section -->
-  <div class="row mt-4">
-    <div class="col-lg-6  rounded-4 shadow-lg border border-primary">
-      <h3 class="text-left text-info">Item Info</h3>
-      <p class="lead text-light"><strong>Item Name:-</strong> <%= @item.name %></p>
-      <p class="lead text-light"><strong>Price:-</strong> <%= number_to_currency(@item.price, unit: "₹", delimiter: ",", format: "%u%n") %></p>
-    </div>
-
-    <div class="col-lg-6  rounded-4 shadow-lg border border-primary">
-      <h3 class="text-left text-info">Issued To</h3>
-      <% if @item.employee_id.present? && @item.employee %>
-        <p class="lead text-light"><strong>Employee Name:-</strong> <%= @item.employee.name %></p>
-        <p class="lead text-light"><strong>Employee Email:-</strong> <%= @item.employee.personal_email %></p>
-      <% else %>
-        <p class="lead text-light"><strong>Issued To:-</strong> N/A</p>
-      <% end %>
-    </div>
   </div>
 
-  <!-- Date Section -->
-  <div class="row mt-4">
-    <div class="col-lg-6  rounded-4 shadow-lg border border-primary">
-      <h3 class="text-left text-info">Issued Date</h3>
-      <p class="lead text-light"><strong>Issued Date:-</strong> <%= @item.issued_date.presence || 'N/A' %></p>
-    </div>
+  <!-- Notifications Section -->
+  
+  <!-- Form to Create New Item -->
+  <%= form_with model: @item, local: true do |form| %>
 
-    <div class="col-lg-6  rounded-4 shadow-lg border border-primary">
-      <h3 class="text-left text-info">Returned Date</h3>
-      <p class="lead text-light"><strong>Returned Date:-</strong> <%= @item.returned_date.presence || 'N/A' %></p>
-    </div>
-  </div>
+  
 
-  <!-- Action Buttons -->
-  <div class="mt-4 text-center">
-    <%= link_to "Edit Item", edit_item_path(@item), class: "btn btn-primary btn-outline-light btn-lg mx-2" %>
-    <%= link_to "Back to Item List", items_path, class: "btn btn-outline-primary btn-lg rounded-lg" %>
-  </div>
+
+
+   <div class="form-group">
+     <%= form.label :returned_date, 'Returned Date', class: 'mb-2 mt-2 text-dark' %>
+     <%= form.date_field :returned_date, { include_blank: true, class: 'form-control bg-light text-dark' } %>
+   </div>
+
+
+    <div class="form-group text-center">
+      <%= form.submit 'Returned Date', class: 'btn btn-success btn-lg mb-4 mt-4 d-block mx-auto rounded-pill',style: "box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1);width: 35%" %>
+    </div>
+  <% end %>
+
+  <!-- Back to Item List Link -->
+  <%= link_to 'Back to Items List', items_path, 
+              class: "btn btn-outline-primary btn-lg mb-4 mt-4 d-block mx-auto rounded-pill", 
+              style: "box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2), 0 4px 6px rgba(255, 255, 255, 0.1); width: 35%;" %>
 </div>

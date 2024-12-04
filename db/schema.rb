@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_23_070308) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_28_075919) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,6 +66,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_23_070308) do
     t.text "about"
   end
 
+  create_table "item_histories", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.string "employee_name"
+    t.date "issued_date"
+    t.date "returned_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_histories_on_item_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.integer "sr_no"
     t.string "name"
@@ -75,7 +85,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_23_070308) do
     t.date "returned_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "employee_id", null: false
+    t.integer "employee_id"
     t.index ["employee_id"], name: "index_items_on_employee_id"
   end
 
@@ -97,6 +107,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_23_070308) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "role"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -104,5 +116,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_23_070308) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "documents", "employees"
+  add_foreign_key "item_histories", "items"
   add_foreign_key "items", "employees"
 end
